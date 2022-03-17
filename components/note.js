@@ -40,7 +40,7 @@ export default function EditorScreen({ route, navigation }) {
     axios({
       method: route.params && route.params.note ? "PUT" : "POST",
       url:
-        "https://10.0.0.238:1337/api/notes/" +
+        "http://10.0.0.238:1337/api/notes" +
         (route.params && route.params.note ? "/" + route.params.note.id : ""),
       data: {
         data: {
@@ -62,7 +62,7 @@ export default function EditorScreen({ route, navigation }) {
 
   function deleteNote() {
     axios
-      .delete("https://10.0.0.238:1337/api/notes/" + route.params.note.id)
+      .delete("http://10.0.0.238:1337/api/notes/" + route.params.note.id)
       .then(() => {
         //redirect back to home screen
         navigation.goBack();

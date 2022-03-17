@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
 
   function loadNotes() {
     axios
-      .get("https://10.0.0.238:1337/api/notes/")
+      .get("http://10.0.0.238:1337/api/notes/")
       .then(({ data }) => {
         setNotes(data.data);
         setLoading(false);
@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {!loading && !notes.length && (
-        <Caption style={{ textAlign: "center", marginTop: 10 }}>
+        <Caption style={{ textAlign: "center", marginTop: 10, color: "white" }}>
           You have no notes
         </Caption>
       )}
@@ -67,5 +67,6 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#535353",
+    color: "white",
   },
 });
