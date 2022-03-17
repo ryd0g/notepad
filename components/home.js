@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, View, StyleSheet } from "react-native";
 import { Caption, List, Snackbar } from "react-native-paper";
 
 export default function HomeScreen({ navigation }) {
@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
 
   function loadNotes() {
     axios
-      .get("http://<IP>:1337/api/notes")
+      .get("https://10.0.0.238:19000:1337/api/notes/")
       .then(({ data }) => {
         setNotes(data.data);
         setLoading(false);
@@ -33,10 +33,10 @@ export default function HomeScreen({ navigation }) {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       {!loading && !notes.length && (
         <Caption style={{ textAlign: "center", marginTop: 10 }}>
-          Notes list empty
+          You have no notes
         </Caption>
       )}
       <FlatList
@@ -63,3 +63,9 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#535353",
+  },
+});

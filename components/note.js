@@ -1,6 +1,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { RichEditor, RichToolbar } from "react-native-pell-rich-editor";
-import { Keyboard, KeyboardAvoidingView, ScrollView, View } from "react-native";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  ScrollView,
+  View,
+  StyleSheet,
+} from "react-native";
 import {
   Button,
   Colors,
@@ -34,7 +40,7 @@ export default function EditorScreen({ route, navigation }) {
     axios({
       method: route.params && route.params.note ? "PUT" : "POST",
       url:
-        "http://<IP>:1337/api/notes" +
+        "https://10.0.0.238:19000:1337/api/notes/" +
         (route.params && route.params.note ? "/" + route.params.note.id : ""),
       data: {
         data: {
@@ -56,7 +62,7 @@ export default function EditorScreen({ route, navigation }) {
 
   function deleteNote() {
     axios
-      .delete("http://<IP>:1337/api/notes/" + route.params.note.id)
+      .delete("https://10.0.0.238:19000:1337/api/notes/" + route.params.note.id)
       .then(() => {
         //redirect back to home screen
         navigation.goBack();
@@ -82,14 +88,14 @@ export default function EditorScreen({ route, navigation }) {
   }, []);
 
   return (
-    <View style={{ margin: 10, flex: 1, justifyContent: "space-between" }}>
+    <View style={styles.container}>
       <TextInput
+        style={{ marginBottom: 5 }}
         label="Title"
         value={title}
         onChangeText={setTitle}
         mode="outlined"
       />
-      <Subheading>Content</Subheading>
       <RichToolbar editor={editor} />
       <ScrollView keyboardDismissMode="onDrag">
         <KeyboardAvoidingView
@@ -116,3 +122,11 @@ export default function EditorScreen({ route, navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#535353",
+    flex: 1,
+    justifyContent: "space-between",
+  },
+});
