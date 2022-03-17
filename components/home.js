@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
 
   function loadNotes() {
     axios
-      .get("https://10.0.0.238:19000:1337/api/notes/")
+      .get("https://10.0.0.238:1337/api/notes/")
       .then(({ data }) => {
         setNotes(data.data);
         setLoading(false);

@@ -40,7 +40,7 @@ export default function EditorScreen({ route, navigation }) {
     axios({
       method: route.params && route.params.note ? "PUT" : "POST",
       url:
-        "https://10.0.0.238:19000:1337/api/notes/" +
+        "https://10.0.0.238:1337/api/notes/" +
         (route.params && route.params.note ? "/" + route.params.note.id : ""),
       data: {
         data: {
@@ -62,7 +62,7 @@ export default function EditorScreen({ route, navigation }) {
 
   function deleteNote() {
     axios
-      .delete("https://10.0.0.238:19000:1337/api/notes/" + route.params.note.id)
+      .delete("https://10.0.0.238:1337/api/notes/" + route.params.note.id)
       .then(() => {
         //redirect back to home screen
         navigation.goBack();
@@ -111,7 +111,11 @@ export default function EditorScreen({ route, navigation }) {
             placeholder="Start typing..."
             useContainer
           />
-          <Button onPress={saveNote} mode="contained" style={{ marginTop: 20 }}>
+          <Button
+            onPress={saveNote}
+            mode="contained"
+            style={{ marginTop: 20, backgroundColor: "#6d8ded" }}
+          >
             Save
           </Button>
         </KeyboardAvoidingView>
