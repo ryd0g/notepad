@@ -129,7 +129,7 @@ export default function EditorScreen({ route, navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#535353",
+    backgroundColor: "#9e9e9e",
     flex: 1,
     justifyContent: "space-between",
   },

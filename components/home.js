@@ -40,9 +40,11 @@ export default function HomeScreen({ navigation }) {
         </Caption>
       )}
       <FlatList
+        style={styles.list}
         data={notes}
         renderItem={({ item }) => (
           <List.Item
+            styles={styles.listitem}
             key={item.id}
             title={item.attributes.title}
             description={item.attributes.date}
@@ -55,7 +57,6 @@ export default function HomeScreen({ navigation }) {
         )}
         refreshing={loading}
         onRefresh={loadNotes}
-        style={{ width: "100%", height: "100%" }}
       />
       <Snackbar visible={error.length > 0} onDismiss={() => setError("")}>
         {error}
@@ -66,7 +67,14 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#535353",
+    backgroundColor: "#9e9e9e",
     color: "white",
+  },
+  list: {
+    width: "100%",
+    height: "100%",
+  },
+  listitem: {
+    backgroundColor: "red",
   },
 });
