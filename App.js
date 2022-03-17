@@ -1,7 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { IconButton } from "react-native-paper";
-import Home from "./components/home";
+import EditorScreen from "./components/note";
+import HomeScreen from "./components/home";
 
 const Stack = createNativeStackNavigator();
 
@@ -11,7 +12,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={Home}
+          component={HomeScreen}
           options={({ navigation }) => ({
             headerRight: () => (
               <IconButton
@@ -21,6 +22,7 @@ export default function App() {
             ),
           })}
         />
+        <Stack.Screen name="Editor" component={EditorScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

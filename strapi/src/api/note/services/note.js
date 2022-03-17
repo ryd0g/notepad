@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * note-pad service.
+ * note service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::note-pad.note-pad');
+module.exports = createCoreService('api::note.note');

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
 import { Caption, List, Snackbar } from "react-native-paper";
 
-export default function Home({ navigation }) {
+export default function HomeScreen({ navigation }) {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

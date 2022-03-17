@@ -1,25 +1,25 @@
 {
   "kind": "collectionType",
-  "collectionName": "note_pads",
+  "collectionName": "notes",
   "info": {
-    "singularName": "note-pad",
-    "pluralName": "note-pads",
-    "displayName": "NotePad"
+    "singularName": "note",
+    "pluralName": "notes",
+    "displayName": "Note"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Contents": {
+    "content": {
       "type": "richtext",
       "required": true
     },
-    "Date": {
+    "date": {
       "type": "datetime",
       "required": true
     }

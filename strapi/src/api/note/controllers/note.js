@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  note-pad controller
+ *  note controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::note-pad.note-pad');
+module.exports = createCoreController('api::note.note');
